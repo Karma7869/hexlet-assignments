@@ -13,7 +13,7 @@ public class Cottage implements Home {
 
     @Overrdie
     public String toString() {
-        return floorCount+ " этажный коттедж площадью " + area + " метров";
+        return floorCount + " этажный коттедж площадью " + area + " метров";
     }
 
     public double getArea() {
