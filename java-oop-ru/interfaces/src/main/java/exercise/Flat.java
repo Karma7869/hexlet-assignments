@@ -1,5 +1,6 @@
 package exercise;
 
+import
 // BEGIN
 public class Flat implements Home {
 
@@ -17,12 +18,10 @@ public class Flat implements Home {
         return area + balconyArea;
     }
 
-    @Overrdie
     public String toString() {
         return "Квартира площадью " + area + " метров на " + floor + " этаже";
     }
 
-    @Overrdie
     public static int compareTo(Home another) {
         if (this.getArea() > another.getArea()) {
             return 1;
