@@ -57,6 +57,50 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testBuildApartmentsListWithLessElementsThanCount() {
+        List<Home> apartments = new ArrayList<>(List.of(
+                new Flat(50, 2, 5),
+                new Cottage(100, 1)
+        ));
+
+        List<String> expected = new ArrayList<>(List.of(
+                "Квартира площадью 50.0 метров на 5 этаже",
+                "1 этажный коттедж площадью 100.0 метров"
+        ));
+
+        List<String> result = App.buildApartmentsList(apartments, 10);
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void testBuildApartmentsListWithNegativeCount() {
+        List<Home> apartments = new ArrayList<>(List.of(
+                new Flat(50, 2, 5),
+                new Cottage(100, 1)
+        ));
+
+        List<String> result = App.buildApartmentsList(apartments, -5);
+        List<String> expected = new ArrayList<>();
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void testBuildApartmentsListWithDuplicates() {
+        List<Home> apartments = new ArrayList<>(List.of(
+                new Flat(50, 2, 5),
+                new Flat(50, 2, 5), // Duplicate
+                new Cottage(100, 1)
+        ));
+
+        List<String> expected = new ArrayList<>(List.of(
+                "Квартира площадью 50.0 метров на 5 этаже",
+                "Квартира площадью 50.0 метров на 5 этаже", // Duplicate
+                "1 этажный коттедж площадью 100.0 метров"
+        ));
+
+        List<String> result = App.buildApartmentsList(apartments, 3);
+        assertThat(result).isEqualTo(expected);
+    }
     // END
 }
