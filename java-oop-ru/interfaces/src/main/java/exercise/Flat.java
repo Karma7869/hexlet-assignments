@@ -21,7 +21,7 @@ public class Flat implements Home {
         return "Квартира площадью " + area + " метров на " + floor + " этаже";
     }
 
-    public static int compareTo(Home another) {
+    public int compareTo(Home another) {
         if (this.getArea() > another.getArea()) {
             return 1;
         } else if (this.getArea() < another.getArea()) {
