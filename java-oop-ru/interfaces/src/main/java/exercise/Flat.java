@@ -1,6 +1,5 @@
 package exercise;
 
-import
 // BEGIN
 public class Flat implements Home {
 
